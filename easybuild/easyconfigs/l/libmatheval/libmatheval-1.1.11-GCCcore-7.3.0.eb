@@ -23,7 +23,7 @@ builddependencies = [
 ]
 dependencies = [
     ('flex', '2.6.4'),
-    ('Bison', '3.0.4'),
+    ('Bison', '3.0.5'),
     ('Guile', '1.8.8'),
 ]
 
