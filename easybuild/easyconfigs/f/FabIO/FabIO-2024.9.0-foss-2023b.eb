@@ -1,0 +1,45 @@
+easyblock = 'PythonBundle'
+
+name = 'FabIO'
+version = '2024.9.0'
+
+homepage = 'http://www.silx.org'
+description = """FabIO is an I/O library for images produced by 2D X-ray detectors and written in Python. 
+FabIO support images detectors from a dozen of companies (including Mar, Dectris, ADSC, Hamamatsu, Oxford, ...), 
+for a total of 20 different file formats (like CBF, EDF, TIFF, ...) and offers an unified interface to their headers 
+(as a python dictionary) and datasets (as a numpy ndarray of integers or floats)."""
+
+toolchain = {'name': 'foss', 'version': '2023b'}
+
+builddependencies = [
+    ('Meson', '1.2.3'),
+    ('meson-python', '0.15.0'),
+]
+
+dependencies = [
+    ('Python', '3.11.5'),
+    ('SciPy-bundle', '2023.11'),
+    ('h5py', '3.11.0'),
+    ('Pillow', '10.2.0'),
+    ('lxml', '4.9.3'),
+    ('py-cpuinfo', '9.0.0')
+]
+
+use_pip = True
+sanity_pip_check = True
+
+exts_list = [
+    ('hdf5plugin', '5.0.0', {
+        'checksums': ['3bcc5c4f523953fe020a220c7b1b307c62066e39fdbdcd904fa2268db80e9dbb'],
+    }),
+    (name, version, {
+        'sources': [SOURCELOWER_TAR_GZ],
+        'checksums': ['f873df51f468531c11aae7e0cd88a14f221f4ef09431fbc5a6ca67b1ed47535b'],
+    }),
+]
+
+modextrapaths = {
+    'HDF5_PLUGIN_PATH': 'lib/python%(pyshortver)s/site-packages/hdf5plugin/plugins',
+}
+
+moduleclass = 'data'

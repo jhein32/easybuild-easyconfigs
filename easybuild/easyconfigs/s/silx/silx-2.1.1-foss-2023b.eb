@@ -1,0 +1,29 @@
+easyblock = 'PythonPackage'
+
+name = 'silx'
+version = '2.1.2'
+
+homepage = "http://www.silx.org/"
+description = """The silx project provides a collection of Python packages to support the 
+development of data assessment, reduction and analysis applications at synchrotron radiation facilities."""
+
+toolchain = {'name': 'foss', 'version': '2023b'}
+
+checksums = ['1cf910f6e8097cb842e687bb81e1286b5cfc9e0213edef99a614b8b7dc5bf714']
+
+dependencies = [
+    ('Python', '3.11.5'),
+    ('SciPy-bundle', '2023.11'),
+    ('PyOpenGL', '3.1.7'),
+    ('matplotlib', '3.8.2'),
+    ('Mako', '1.2.4'),
+    ('FabIO', '2024.9.0'),
+    ('Qtconsole', '5.6.0'),
+    ('PyOpenCL', '2024.2.7'),
+]
+
+use_pip = True
+download_dep_fail = True
+sanity_pip_check = True
+
+moduleclass = 'vis'
